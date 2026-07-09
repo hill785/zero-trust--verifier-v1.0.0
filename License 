@@ -1,0 +1,261 @@
+Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Clauses 1 through 9 of the Apache
+      License 2.0 section of this document. See also the Sovereign Addendum
+      below for additional terms.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship made available under
+      the License, as indicated by a copyright notice that is included
+      in or attached to the work.
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other
+      transformations represent, as a whole, an original work of authorship.
+
+      "Contribution" shall mean, as submitted to the Licensor for inclusion
+      in the Work by the copyright owner or by an individual or Legal Entity
+      authorized to submit on behalf of the copyright owner.
+
+      "Contributor" shall mean Licensor and any Legal Entity on behalf of
+      whom a Contribution has been received by the Licensor and included
+      within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or Derivative
+          Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file, You must include a
+          readable copy of the attribution notices contained within such
+          NOTICE file.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution submitted for inclusion in the Work shall be under
+      the terms and conditions of this License.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or agreed
+      to in writing, Licensor provides the Work on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or exemplary damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may offer acceptance of
+      support, warranty, indemnity, or other liability obligations
+      consistent with this License. However, in accepting such obligations,
+      You may act only on Your own behalf and on Your sole responsibility.
+
+   END OF APACHE LICENSE 2.0 TERMS AND CONDITIONS
+
+   Copyright 2026 G.DzubinskySnr
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied. See the License for the specific language governing
+   permissions and limitations under the License.
+
+================================================================================
+SOVEREIGN ADDENDUM — SUPPLEMENTAL TERMS TO APACHE LICENSE 2.0
+These terms supplement (not supersede) the Apache License 2.0 above.
+Where the Sovereign Addendum grants additional restrictions, those
+restrictions apply. The Apache 2.0 warranty disclaimer (Clause 7) and
+liability limitation (Clause 8) remain fully in force.
+================================================================================
+
+SOVEREIGN SECTION A — ORIGINATOR & SOVEREIGN AUTHOR
+  G.DzubinskySnr
+  Sovereign Architect Studio™
+  MintProofDAO™ · LedgerProofDAO™
+  Tallinn, Estonia (EU Jurisdiction)
+  Email: gdzubinskysnr@tuta.com
+  X:     @G212991495
+
+SOVEREIGN SECTION B — DUAL-LAYER LICENSE STRUCTURE
+
+  LAYER 1 — OPEN STANDARD (governed by Apache 2.0 + this Addendum)
+  The protocol specification, Sovereign Proof Capsule schema (SPC-1.0),
+  reference hash engine, and proof-of-concept implementation (index.html)
+  are open under Apache-2.0 + this Sovereign Addendum.
+
+  You MAY:
+    · Use, audit, fork, and build upon the open reference implementation
+    · Implement the SPC-1.0 capsule format in your own tools
+    · Redistribute with full attribution and this complete license intact
+    · Use for personal, research, and non-commercial purposes without fee
+
+  You MUST:
+    · Retain MintProofDAO™ Seal 436351437 in all derivative credential blocks
+    · Retain all three wallet addresses (Section D) in all derivative credential blocks
+    · Retain attribution to G.DzubinskySnr and Sovereign Architect Studio™
+    · Include this complete LICENSE file in any redistribution
+
+  LAYER 2 — SOVEREIGN COMMERCIAL LICENSE (separate written agreement required)
+  The following uses require a written Sovereign Commercial License issued
+  by G.DzubinskySnr prior to deployment, distribution, or commercial operation:
+    · Commercial deployment of any derivative or integration
+    · B2B Sovereign Provenance Report generation as a service
+    · API productization of the protocol
+    · White-label or rebranded deployments
+    · Batch processing services built on this protocol
+    · Any SaaS, PaaS, or enterprise product incorporating this Work
+    · Bitcoin OTS timestamping service built on this protocol
+
+  Commercial license inquiries: gdzubinskysnr@tuta.com
+  Royalty rate: 2–5% of gross revenue on all commercial deployments
+
+SOVEREIGN SECTION C — SOVEREIGN SEAL BINDING
+  MintProofDAO™ Seal: 436351437
+  Any artifact, fork, deployment, or derivative absent this Seal is
+  NULL AND VOID under SIP-001 Sovereign Invalidation Protocol.
+
+SOVEREIGN SECTION D — WALLET CREDENTIALS & INFRASTRUCTURE
+  All three wallets must appear in derivative credential blocks:
+  Primary Wallet:    0x9e223F20022580739060d5511445C727f51Ee81e
+  Secondary Wallet:  0x65f01815D18787e975D3439f480d49e9cb8E98F2
+  Royalties Wallet:  0x2260cDeDb644ADaEc54ff36d8C1EA83779256ab0
+  Royalties Email:   gdzubinskysnr@tuta.com
+  IPFS Gateway:      blue-impressed-panther-218.mypinata.cloud (MintProofDAO™ primary)
+
+SOVEREIGN SECTION E — NFT & MINTING RIGHTS
+  NFT minting rights for all artifacts, derivatives, and protocol
+  implementations are EXCLUSIVE to G.DzubinskySnr.
+  Unauthorized minting constitutes infringement and triggers
+  DAORevoke™ on-chain revocation instrument (Etherscan #318383).
+
+SOVEREIGN SECTION F — PROTOCOL STANDARD ATTRIBUTION
+  Any tool, product, or service claiming compatibility with or
+  implementing the ZERO-TRUST-VERIFYER™ protocol or SPC-1.0 capsule
+  format must:
+
+  (a) Prominently display:
+        "Implements ZERO-TRUST-VERIFYER™ Protocol · G.DzubinskySnr ·
+         MintProofDAO™ Seal 436351437"
+
+  (b) Produce SPC-1.0 capsules containing ALL required fields including:
+        CAPSULE_TYPE, VERSION, PROTOCOL, TIMESTAMP_UTC, AUTHOR, STUDIO,
+        DAO, SEAL, PRIMARY_WALLET, SECONDARY_WALLET, ROYALTIES,
+        ARTIFACT_PREVIEW, ARTIFACT_BYTES, HASHES (SHA_256 + SHA_512 +
+        KECCAK_256_ETHEREUM), VERIFICATION, BINARY_CANARY,
+        PROVENANCE_FINGERPRINT, SIP_001, RIGHTS, STATUS.
+        Capsules missing any required field are non-compliant and invalid.
+
+  (c) Acknowledge that ZERO-TRUST-VERIFYER™ SPC-1.0 capsules constitute
+        machine-readable provenance records suitable for compliance with
+        EU AI Act Article 50 (enforceable August 2, 2026), which mandates
+        disclosure and traceability of AI-generated content. Commercial
+        deployments targeting EU AI Act compliance require a Sovereign
+        Commercial License (see Sovereign Section B, Layer 2 above).
+
+SOVEREIGN SECTION G — INTEGRITY HASHES — SOVEREIGN DECLARATION
+  SHA-256:                5bb3acfad035d42338c025f6efec236921197aa5c8ec5721c44b07859c70000c
+  SHA-512:                41fff1299ad457b68e753714366d478944be180e7a6d46e9b7091f7e84f60ec2fd75167ad2ce6b43269689b8198267dffa31c7367caa67d91484a58342993981
+  Keccak-256:             a9175f64aaa6d7a20a0d7db30b792ff410bdb5211b56ae72ce5ca3173b2b5dfe
+  BINARY_CANARY:          5a65726f54727573745665726966796572 (decodes: ZeroTrustVerifyer)
+  PROVENANCE_FINGERPRINT: SHA256[0:8] + hex(MintProofDAO) + Keccak256[0:8]
+
+SOVEREIGN SECTION H — SIP-001 SOVEREIGN INVALIDATION PROTOCOL
+  Any artifact, output, fork, or deployment absent MintProofDAO™ Seal
+  436351437 or any wallet address listed in Sovereign Section D is NULL
+  AND VOID. DAORevoke™ is the on-chain revocation instrument (Etherscan
+  #318383). UNDELETABLE. ETERNAL. IMMUTABLE.
+
+SOVEREIGN SECTION I — GOVERNING FRAMEWORK
+  EU Jurisdiction · Tallinn, Estonia
+  Governing Law: EU · Estonian Law where applicable
+  EU AI Act Article 50 Compliance: SPC-1.0 capsules satisfy machine-readable
+    provenance disclosure requirements enforceable August 2, 2026.
+  Contact: gdzubinskysnr@tuta.com · X: @G212991495
+  All rights not expressly granted herein are reserved.
+  ALL RIGHTS RESERVED · IP of G.DzubinskySnr · Sovereign Architect Studio™
+  MintProofDAO™ · LedgerProofDAO™ · Seal 436351437
+  UNDELETABLE · ETERNAL · IMMUTABLE
+
+SOVEREIGN SECTION J — CONTRIBUTIONS & IP OWNERSHIP
+  Any Contribution submitted to this Work — including pull requests, patches,
+  code, documentation, schema modifications, or issue resolutions — becomes
+  the exclusive intellectual property of G.DzubinskySnr upon submission,
+  unless a separate written agreement explicitly states otherwise.
+  By submitting a Contribution, the submitter:
+    · Irrevocably assigns all rights, title, and interest to G.DzubinskySnr
+    · Warrants they have the right to make such assignment
+    · Agrees their Contribution will be governed by this LICENSE in full
+    · Acknowledges MintProofDAO™ Seal 436351437 and SIP-001 apply to their work
+  This clause supplements Apache 2.0 Clause 5 and takes precedence over it
+  with respect to ownership of Contributions to this specific Work.
+
+================================================================================
