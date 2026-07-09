@@ -1,0 +1,55 @@
+Code of Conduct
+
+Zero Trust Verifier
+
+Our Principles
+
+Zero Trust Verifier is built on the principles of:
+
+- Verify before trust.
+- Respect evidence over assumptions.
+- Protect user privacy and security.
+- Act professionally and ethically.
+- Collaborate respectfully regardless of background or experience.
+
+Expected Behavior
+
+Contributors are expected to:
+
+- Communicate respectfully.
+- Report security issues responsibly.
+- Provide accurate and verifiable information.
+- Respect intellectual property and software licenses.
+- Focus discussions on improving the project.
+
+Unacceptable Behavior
+
+The following are not permitted:
+
+- Harassment, discrimination, or abusive language.
+- Fraudulent or misleading contributions.
+- Introducing malicious code, backdoors, or intentionally vulnerable software.
+- Publishing confidential information without authorization.
+- Attempts to compromise the security or integrity of the project.
+
+Security First
+
+Zero Trust Verifier follows a "verify, don't assume" philosophy.
+
+Every contribution should be reviewed, tested, and validated before acceptance. Security, transparency, and reproducibility take priority over speed.
+
+Reporting Issues
+
+Security vulnerabilities should be reported privately to the project maintainer before public disclosure.
+
+Project Maintainer:
+G. Dzubinsky Snr
+
+Contact:
+gdzubinskysnr@tuta.com
+
+Enforcement
+
+Project maintainers may edit, reject, or remove contributions that violate this Code of Conduct in order to protect the project's integrity, security, and community.
+
+Thank you for helping build trustworthy software.
