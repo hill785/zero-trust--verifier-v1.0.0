@@ -1,5 +1,5 @@
-# zero-trust--verifyer-
-# ZERO-TRUST-VERIFYER™
+# zero-trust--verifier-
+# ZERO-TRUST-VERIFIER™
 
 > **Don't Trust. Verify. The open standard for sovereign artifact integrity.**
 
