@@ -14,7 +14,7 @@
 
 ## What This Is
 
-**ZERO-TRUST-VERIFYER™** is an open cryptographic integrity protocol for verifying digital artifacts through hashing, digital signatures, and evidence-based trust records.
+**ZERO-TRUST-VERIFIER™** is an open cryptographic integrity protocol for verifying digital artifacts through hashing, digital signatures, and evidence-based trust records.
 
 This repository is the **open standard reference layer** — the protocol specification, verification schema, and proof-of-concept engine that anyone can audit, implement against, and build upon under the terms of this license.
 
@@ -57,7 +57,7 @@ Every verified artifact produces a Sovereign Proof Capsule — a self-contained 
 {
   "CAPSULE_TYPE": "SOVEREIGN_PROOF_CAPSULE",
   "VERSION": "1.0.0",
-  "PROTOCOL": "ZERO-TRUST-VERIFYER™",
+  "PROTOCOL": "ZERO-TRUST-VERIFIER™",
   "TIMESTAMP_UTC": "<ISO 8601>",
   "AUTHOR": "G.DzubinskySnr",
   "STUDIO": "Sovereign Architect Studio™",
