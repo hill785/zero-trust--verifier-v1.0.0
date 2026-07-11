@@ -1,1 +1,12 @@
 .github/workflows/capsule-proxy.yml
+name: Capsule Verification Proxy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  call-verification:
+    uses: hill785/Genesis-Declarations/.github/workflows/sovereign-capsule-verification.yml@main
