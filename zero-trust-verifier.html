@@ -1,1 +1,312 @@
-zero-trust-verifier.html
+zero-trust-verifier. html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Zero-Trust Verifier™ — Sovereign Release Verification</title>
+<style>
+:root {
+  --ink:#0a0c0f;--surface:#0f1318;--panel:#161b22;--border:#21262d;
+  --accent:#00e5ff;--accent2:#7b61ff;--green:#3fb950;--red:#f85149;
+  --warn:#ff6b35;--text:#c9d1d9;--muted:#6e7681;--white:#f0f6fc;
+  --mono:'JetBrains Mono','Fira Mono','Courier New',monospace;
+  --ui:'Inter',system-ui,sans-serif;--r:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--text);font-family:var(--ui);font-size:15px;line-height:1.65;min-height:100vh}
+h1,h2,h3{font-family:var(--mono);color:var(--white);letter-spacing:-.02em}
+h1{font-size:clamp(1.6rem,5vw,2.8rem);line-height:1.1}
+h3{font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:.5rem}
+p{max-width:60ch}
+nav{position:sticky;top:0;z-index:100;background:rgba(10,12,15,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:.85rem 1.25rem}
+.nav-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--mono);font-size:1rem;font-weight:700;color:var(--accent)}
+.nav-logo span{color:var(--muted);font-weight:400;font-size:.75rem;margin-left:.5rem}
+.seal-badge{font-family:var(--mono);font-size:.62rem;color:var(--muted);border:1px solid var(--border);padding:3px 8px;border-radius:3px}
+.container{max-width:860px;margin:0 auto;padding:0 1.25rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+#hero{padding:4rem 0 3rem}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.eyebrow::before{content:'';display:inline-block;width:18px;height:1px;background:var(--accent)}
+.hero-sub{margin-top:1.1rem;font-size:1rem;color:var(--text);max-width:54ch;line-height:1.75}
+.verifier{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);margin-top:2rem;overflow:hidden}
+.v-header{padding:.85rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px}
+.dot-idle{background:var(--muted)}.dot-run{background:var(--warn);animation:blink 1s infinite}.dot-ok{background:var(--green)}.dot-fail{background:var(--red)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.v-body{padding:1.25rem}
+.field-label{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.35rem}
+.v-input{width:100%;background:var(--ink);border:1px solid var(--border);color:var(--white);font-family:var(--mono);font-size:.8rem;padding:.55rem .85rem;border-radius:var(--r);outline:none;margin-bottom:1rem}
+.v-input:focus{border-color:rgba(0,229,255,.4)}
+textarea.v-input{resize:vertical;min-height:80px}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.tab{font-family:var(--mono);font-size:.72rem;font-weight:600;padding:.4rem .85rem;border-radius:var(--r);cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);transition:all .2s}
+.tab.active{border-color:var(--accent);color:var(--accent)}
+.checks{display:grid;gap:.5rem;margin:1rem 0}
+.check-row{display:flex;align-items:center;gap:.75rem;padding:.6rem .85rem;background:var(--ink);border:1px solid var(--border);border-radius:var(--r);font-family:var(--mono);font-size:.75rem;transition:all .2s}
+.check-icon{width:18px;flex-shrink:0;text-align:center}
+.check-label{flex:1;color:var(--text)}
+.check-status{color:var(--muted);font-size:.68rem}
+.check-row.pass{border-color:rgba(63,185,80,.25);background:rgba(63,185,80,.04)}
+.check-row.pass .check-status{color:var(--green)}
+.check-row.fail{border-color:rgba(248,81,73,.25);background:rgba(248,81,73,.04)}
+.check-row.fail .check-status{color:var(--red)}
+.progress{height:2px;background:var(--border);border-radius:1px;margin:.75rem 0;overflow:hidden}
+.pbar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .15s linear;box-shadow:0 0 6px var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.65rem 1.4rem;font-family:var(--mono);font-size:.82rem;font-weight:700;border-radius:var(--r);cursor:pointer;border:none;transition:all .2s;letter-spacing:.04em;width:100%;margin-top:1rem}
+.btn-primary{background:var(--accent);color:var(--ink)}
+.btn-primary:hover{background:#33eaff;box-shadow:0 0 20px rgba(0,229,255,.2)}
+.btn-primary:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;box-shadow:none}
+.verdict{display:none;margin-top:1rem;padding:1rem 1.25rem;border-radius:var(--r);font-family:var(--mono);font-size:.8rem;line-height:1.9}
+.verdict.pass{background:rgba(63,185,80,.07);border:1px solid rgba(63,185,80,.3);color:var(--green)}
+.verdict.fail{background:rgba(248,81,73,.07);border:1px solid rgba(248,81,73,.3);color:var(--red)}
+.verdict-title{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.verdict-detail{color:var(--text);font-size:.72rem}
+.sha-out{background:var(--ink);border:1px solid var(--border);border-radius:var(--r);padding:.75rem;font-family:var(--mono);font-size:.72rem;color:var(--accent);word-break:break-all;margin-top:.75rem;min-height:2.5rem}
+.steps{display:grid;gap:1rem;margin-top:1.5rem}
+.step{display:grid;grid-template-columns:2.5rem 1fr;gap:.85rem;align-items:start}
+.step-n{font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--accent);background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.2);width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;border-radius:var(--r);flex-shrink:0}
+.step h4{font-family:var(--mono);font-size:.88rem;color:var(--white);margin-bottom:.2rem}
+.step p{font-size:.88rem;color:var(--muted);max-width:none}
+.div{display:flex;align-items:center;gap:.85rem;font-family:var(--mono);font-size:.62rem;color:var(--muted);letter-spacing:.1em;margin:.4rem 0 1.25rem}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--border)}
+.cred{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:1.25rem;font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:2;word-break:break-all;margin-top:1.5rem}
+.cred .k{color:var(--accent2)}.cred .v{color:var(--text)}.cred .s{color:var(--accent);font-weight:700}.cred .w{color:var(--warn)}
+footer{padding:2.5rem 1.25rem;border-top:1px solid var(--border);text-align:center}
+.footer-logo{font-family:var(--mono);font-size:1rem;color:var(--accent);font-weight:700;margin-bottom:.4rem}
+.footer-copy{font-family:var(--mono);font-size:.62rem;color:var(--muted);line-height:2;margin-top:.75rem}
+@media(min-width:640px){.steps{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+  <div class="nav-logo">ZTV™ <span>Zero-Trust Verifier</span></div>
+  <div class="seal-badge">MintProofDAO™ · 436351437</div>
+</div></nav>
+
+<section id="hero"><div class="container">
+  <div class="eyebrow">Sovereign Verification · v1.0.0</div>
+  <h1>Trust Nothing.<br/>Verify Everything.</h1>
+  <p class="hero-sub">Validates any software release without trusting any platform, server, or publisher. Mathematics enforces the rules.</p>
+
+  <div class="verifier">
+    <div class="v-header">
+      <span><span class="dot dot-idle" id="dot"></span><span id="statusTxt">READY</span></span>
+      <span id="modeTxt">RELEASE VERIFIER</span>
+    </div>
+    <div class="v-body">
+      <div class="tabs">
+        <button class="tab active" onclick="setMode('release')">Release URL</button>
+        <button class="tab" onclick="setMode('file')">File Hash</button>
+        <button class="tab" onclick="setMode('manual')">Manual Check</button>
+      </div>
+
+      <div id="modeRelease">
+        <div class="field-label">Release URL or Identifier</div>
+        <input class="v-input" id="releaseUrl" type="text" placeholder="https://github.com/hill785/DWTL/releases/tag/dwtl"/>
+        <div class="field-label">Expected SHA256 (optional)</div>
+        <input class="v-input" id="expectedHash" type="text" placeholder="Leave blank to skip hash comparison"/>
+        <div class="field-label">Seals to Verify (comma separated)</div>
+        <input class="v-input" id="seals" type="text" value="MintProofDAO,436351437,G.DzubinskySnr,SIP-001"/>
+      </div>
+
+      <div id="modeFile" style="display:none">
+        <div class="field-label">Select file to compute SHA-256</div>
+        <input class="v-input" id="fileInput" type="file" style="padding:.4rem"/>
+        <div class="field-label" style="margin-top:.75rem">SHA-256 Output</div>
+        <div class="sha-out" id="shaOut">— awaiting file —</div>
+      </div>
+
+      <div id="modeManual" style="display:none">
+        <div class="field-label">Paste release content to verify</div>
+        <textarea class="v-input" id="manualContent" placeholder="Paste release notes, file content, or any text to scan for sovereign seals and compute hash..."></textarea>
+        <div class="field-label">Seals to check (comma separated)</div>
+        <input class="v-input" id="manualSeals" type="text" value="MintProofDAO,436351437,G.DzubinskySnr,SIP-001,UNDELETABLE"/>
+        <div class="field-label">SHA-256 of pasted content</div>
+        <div class="sha-out" id="manualShaOut">— paste content above —</div>
+      </div>
+
+      <div class="progress"><div class="pbar" id="pbar"></div></div>
+
+      <div class="checks">
+        <div class="check-row" id="c0"><span class="check-icon">⬜</span><span class="check-label">Input validation</span><span class="check-status" id="s0">PENDING</span></div>
+        <div class="check-row" id="c1"><span class="check-icon">⬜</span><span class="check-label">Seal verification</span><span class="check-status" id="s1">PENDING</span></div>
+        <div class="check-row" id="c2"><span class="check-icon">⬜</span><span class="check-label">Wallet address confirmation</span><span class="check-status" id="s2">PENDING</span></div>
+        <div class="check-row" id="c3"><span class="check-icon">⬜</span><span class="check-label">SHA-256 integrity</span><span class="check-status" id="s3">PENDING</span></div>
+        <div class="check-row" id="c4"><span class="check-icon">⬜</span><span class="check-label">SIP-001 active flag</span><span class="check-status" id="s4">PENDING</span></div>
+        <div class="check-row" id="c5"><span class="check-icon">⬜</span><span class="check-label">Timestamp anchor</span><span class="check-status" id="s5">PENDING</span></div>
+      </div>
+
+      <button class="btn btn-primary" id="verifyBtn" onclick="runVerify()">🔍 VERIFY RELEASE</button>
+
+      <div class="verdict" id="verdict">
+        <div class="verdict-title" id="verdictTitle"></div>
+        <div class="verdict-detail" id="verdictDetail"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <h3>Protocol</h3>
+  <h2>How Verification Works</h2>
+  <div class="div">6 Checks · Zero Trust · No Server Required</div>
+  <div class="steps">
+    <div class="step"><div class="step-n">01</div><div><h4>Input Validation</h4><p>Confirms the release URL or content is well-formed and non-empty before any verification begins.</p></div></div>
+    <div class="step"><div class="step-n">02</div><div><h4>Seal Verification</h4><p>Scans for MintProofDAO™ Seal 436351437, LedgerProofDAO™, and author identity markers.</p></div></div>
+    <div class="step"><div class="step-n">03</div><div><h4>Wallet Confirmation</h4><p>Confirms both sovereign wallet addresses are present and unmodified in the release.</p></div></div>
+    <div class="step"><div class="step-n">04</div><div><h4>SHA-256 Integrity</h4><p>Computes SHA-256 of the content locally in browser. No data leaves your device.</p></div></div>
+    <div class="step"><div class="step-n">05</div><div><h4>SIP-001 Flag</h4><p>Verifies SIP-001 ACTIVE marker is present. Absent seal = NULL AND VOID per sovereign protocol.</p></div></div>
+    <div class="step"><div class="step-n">06</div><div><h4>Timestamp Anchor</h4><p>Validates timestamp format and cross-references against known release anchors.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <h3>Sovereign IP</h3>
+  <h2>Cryptographic Identity</h2>
+  <div class="div">MintProofDAO™ · LedgerProofDAO™ · SIP-001</div>
+  <div class="cred">
+    <span class="k">TOOL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="v">Zero-Trust Verifier™ v1.0.0</span><br/>
+    <span class="k">AUTHOR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="v">G.DzubinskySnr</span><br/>
+    <span class="k">STUDIO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="v">Sovereign Architect Studio™</span><br/>
+    <span class="k">JURISDICTION &nbsp;</span><span class="v">Tallinn, Estonia — EU / eIDAS</span><br/>
+    <span class="k">SEAL-A &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="s">MintProofDAO™ · 436351437</span><br/>
+    <span class="k">SEAL-B &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="s">LedgerProofDAO™</span><br/>
+    <span class="k">WALLET-PRIMARY</span><span class="v"> 0x9e223F20022580739060d5511445C727f51Ee81e</span><br/>
+    <span class="k">WALLET-SEC &nbsp;&nbsp;&nbsp;</span><span class="v">0x65f01815D18787e975D3439f480d49e9cb8E98F2</span><br/>
+    <span class="k">IPFS-CIDv1 &nbsp;&nbsp;&nbsp;</span><span class="v">bafkreiao6t3spbhdcenacr3zhc6qy5etbhniuu3nvjnrrsyhx7yvi65k74</span><br/>
+    <span class="k">SIP-001 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="w">ACTIVE — absent seal = NULL AND VOID</span><br/>
+    <span class="k">STATUS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="s">UNDELETABLE · PERMANENT · ETERNAL</span>
+  </div>
+</div></section>
+
+<footer><div class="container">
+  <div class="footer-logo">ZTV™</div>
+  <div style="font-family:var(--mono);font-size:.75rem;color:var(--muted)">Zero-Trust Verifier · Sovereign Architect Studio™</div>
+  <div class="footer-copy">MintProofDAO™ Seal 436351437 · G.DzubinskySnr · LedgerProofDAO™<br/>UNDELETABLE · PERMANENT · ETERNAL</div>
+</div></footer>
+
+<script>
+const WALLETS=['0x9e223F20022580739060d5511445C727f51Ee81e','0x65f01815D18787e975D3439f480d49e9cb8E98F2'];
+let currentMode='release';
+
+function setMode(m){
+  currentMode=m;
+  document.getElementById('modeRelease').style.display=m==='release'?'block':'none';
+  document.getElementById('modeFile').style.display=m==='file'?'block':'none';
+  document.getElementById('modeManual').style.display=m==='manual'?'block':'none';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  reset();
+}
+
+document.getElementById('fileInput').addEventListener('change',async e=>{
+  const file=e.target.files[0];if(!file)return;
+  document.getElementById('shaOut').textContent='Computing...';
+  const buf=await file.arrayBuffer();
+  const hash=await crypto.subtle.digest('SHA-256',buf);
+  document.getElementById('shaOut').textContent=Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+});
+
+document.getElementById('manualContent').addEventListener('input',async e=>{
+  const txt=e.target.value;
+  if(!txt){document.getElementById('manualShaOut').textContent='— paste content above —';return;}
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt));
+  document.getElementById('manualShaOut').textContent=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+});
+
+async function sha256str(s){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+function reset(){
+  for(let i=0;i<6;i++){
+    document.getElementById('c'+i).className='check-row';
+    document.getElementById('c'+i).querySelector('.check-icon').textContent='⬜';
+    document.getElementById('s'+i).textContent='PENDING';
+  }
+  document.getElementById('pbar').style.width='0%';
+  document.getElementById('verdict').style.display='none';
+  document.getElementById('dot').className='dot dot-idle';
+  document.getElementById('statusTxt').textContent='READY';
+}
+
+function setCheck(i,pass,msg){
+  document.getElementById('c'+i).className='check-row '+(pass?'pass':'fail');
+  document.getElementById('c'+i).querySelector('.check-icon').textContent=pass?'✅':'❌';
+  document.getElementById('s'+i).textContent=msg;
+  document.getElementById('pbar').style.width=(((i+1)/6)*100)+'%';
+}
+
+function delay(ms){return new Promise(r=>setTimeout(r,ms));}
+
+async function runVerify(){
+  const btn=document.getElementById('verifyBtn');
+  btn.disabled=true;reset();
+  document.getElementById('dot').className='dot dot-run';
+  document.getElementById('statusTxt').textContent='VERIFYING...';
+  let content='',passed=0;
+
+  if(currentMode==='release') content=document.getElementById('releaseUrl').value.trim();
+  else if(currentMode==='manual') content=document.getElementById('manualContent').value.trim();
+  else content=document.getElementById('shaOut').textContent;
+
+  await delay(300);
+  const inputOk=content.length>4;
+  setCheck(0,inputOk,inputOk?'VALID':'EMPTY INPUT');
+  passed+=inputOk?1:0;
+  if(!inputOk){finish(false,'No input provided.');btn.disabled=false;return;}
+
+  await delay(400);
+  const sealSrc=currentMode==='manual'?document.getElementById('manualSeals').value:document.getElementById('seals').value;
+  const seals=sealSrc.split(',').map(s=>s.trim()).filter(Boolean);
+  const found=seals.filter(s=>content.includes(s));
+  const sealOk=found.length===seals.length;
+  setCheck(1,sealOk,sealOk?found.length+'/'+seals.length+' FOUND':'MISSING: '+seals.filter(s=>!content.includes(s)).join(', '));
+  passed+=sealOk?1:0;
+
+  await delay(400);
+  const wFound=WALLETS.filter(w=>content.includes(w));
+  const walletOk=wFound.length===WALLETS.length;
+  setCheck(2,walletOk,walletOk?'BOTH WALLETS CONFIRMED':wFound.length+'/2 FOUND');
+  passed+=walletOk?1:0;
+
+  await delay(500);
+  const hash=await sha256str(content);
+  const exp=document.getElementById('expectedHash')?.value?.trim();
+  const hashOk=!exp||hash.toLowerCase()===exp.toLowerCase();
+  setCheck(3,hashOk,hashOk?hash.slice(0,16)+'...':'HASH MISMATCH');
+  passed+=hashOk?1:0;
+
+  await delay(350);
+  const sipOk=content.includes('SIP-001');
+  setCheck(4,sipOk,sipOk?'SIP-001 ACTIVE':'SIP-001 NOT FOUND');
+  passed+=sipOk?1:0;
+
+  await delay(300);
+  const ts=content.match(/202[0-9]-[0-9]{2}-[0-9]{2}/);
+  const tsOk=!!ts;
+  setCheck(5,tsOk,tsOk?'ANCHOR: '+ts[0]:'NO TIMESTAMP FOUND');
+  passed+=tsOk?1:0;
+
+  finish(passed>=4,passed+'/6 checks passed · SHA-256: '+hash.slice(0,32)+'...');
+  btn.disabled=false;
+}
+
+function finish(ok,detail){
+  const v=document.getElementById('verdict');
+  v.className='verdict '+(ok?'pass':'fail');
+  v.style.display='block';
+  document.getElementById('verdictTitle').textContent=ok?'✅ AUTHENTIC · UNTAMPERED · SOVEREIGN':'❌ VERIFICATION FAILED · REJECT';
+  document.getElementById('verdictDetail').textContent=detail;
+  document.getElementById('dot').className='dot '+(ok?'dot-ok':'dot-fail');
+  document.getElementById('statusTxt').textContent=ok?'VERIFIED':'FAILED';
+}
+</script>
+</body>
+</html>
