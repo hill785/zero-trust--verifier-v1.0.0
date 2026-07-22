@@ -200,3 +200,22 @@ DAORevoke™ is the on-chain revocation instrument (Etherscan #318383).
 MintProofDAO™ · LedgerProofDAO™ · Seal 436351437  
 © 2026 G.DzubinskySnr. Apache-2.0 + Sovereign Addendum.
 
+# 🛡️ AI Triage Patching Tool (ATPT)
+
+![License: Hybrid](https://shields.io)
+![Build: Passing](https://shields.io)
+![Version](https://shields.io)
+![Audit: OpenZeppelin Ready](https://shields.io)
+
+An engineering-grade, hybrid security automation ecosystem built for the **real-time detection, prioritization, and auto-remediation** of the 26 known adversarial attack vectors targeting AI systems. This tool natively aligns execution telemetry directly against the **MITRE ATLAS™** framework.
+
+This repository delivers your security logic across two distinct, hardened distribution modules:
+1. **Core SDK:** A zero-source, Cython-compiled Python developer library designed to monitor backend LLM gateways, Model Context Protocol (MCP) servers, and vector databases.
+2. **Mobile APK:** An optimized, R8-obfuscated Android application tailored for local, edge-device model context validation and client-side agent interception.
+
+---
+
+## 📐 System Architecture
+
+ATPT intercepts telemetry workflows across three distinct structural validation phases before context reaches runtime models or downstream client endpoints:
+
