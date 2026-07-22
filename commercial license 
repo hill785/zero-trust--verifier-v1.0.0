@@ -1,0 +1,39 @@
+===============================================================================
+COMMERCIAL PROPRIETARY LICENSE AGREEMENT (V1.0.0 COMPLIANCE)
+===============================================================================
+Licensor: G. Dzubinsky Snr
+Corporate Group: Hermes Group of Companies (Hermes Capital / Hermes Heritage Trust)
+Registry Jurisdiction: Harare, Zimbabwe
+Target System: AI Triage Patching Tool (ATPT) SDK & APK Framework
+
+1. DEFINITIONS AND CONTRACTUAL SCOPE
+This Commercial Proprietary License Agreement ("Agreement") governs the execution,
+integration, embedding, and commercial deployment of the compiled, zero-source 
+binary extensions belonging to the AI Triage Patching Tool (ATPT). This contract 
+is issued exclusively to entities seeking release from the copyleft, recursive 
+open-source requirements mandated under the standard AGPL-3.0 default public tier.
+
+2. SECURITY DEMARCATION AND VERIFICATION TOKENS
+Licensee must provision and maintain valid cryptographic credentials issued directly 
+by the Hermes Group validation registry. The runtime software strictly binds itself 
+to the hardware signature hash generated during initial provisioning. Any attempt 
+to alter, copy, or mirror the environment configuration outside the authorized 
+cluster topology drops active authentication states and immediately voids this lease.
+
+3. METERED TRANSACTION AUDIT AND ROYALTY SETTLEMENTS
+- Basic Royalty Base: $0.001 USD per uniquely scanned AI telemetry pipeline record.
+- Vector Boundaries: Covers all 26 threat profiles mapped under the MITRE ATLAS framework.
+- Telemetry Logging: Automatically compiled using constant-time cryptographic HMAC signatures 
+  to safeguard transaction validation against replay or spoofing manipulation.
+- Financial Remittance: Settled on a rolling monthly net-30 schedule through designated 
+  Hermes Capital corporate banking infrastructure.
+
+4. INTELLECTUAL PROPERTY AND DECOMPILATION LIMITATIONS
+All proprietary algorithmic intelligence, architectural rule maps, and binary 
+extension blocks remain the sole, absolute property of the Licensor. Licensee 
+shall not modify, patch, reverse engineer, or trace compiled runtime variables. 
+
+For transaction records adjustments, compliance certifications, or custom enterprise 
+SLA provisioning, address all inquiries directly to the corporate oversight registry:
+📧 licensing@yourdomain.com
+===============================================================================
