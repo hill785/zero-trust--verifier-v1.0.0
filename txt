@@ -1,0 +1,66 @@
+# .gitignore - Optimized for ATPT Native Binary Packaging V1.0.0
+# Prevents intellectual property leakage and tracking distribution noise
+
+# Byte-compiled / optimized / architectural remnants
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.c
+*.html
+
+# C-extensions build systems metadata cache
+.pypy/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Android packaging metadata build logs
+.gradle/
+local.properties
+.navigation/
+captures/
+.externalNativeBuild/
+.cxx/
+android/app/build/
+*.apk
+*.aar
+*.jks
+*.keystore
+
+# Pytest runtime logging frames
+.pytest_cache/
+.asyncio_cache/
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+nosetests.xml
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local host IDE parameters
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
